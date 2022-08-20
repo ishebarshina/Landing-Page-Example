@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adaptive.css">
     <title>Document</title>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <nav>
+            <nav class="menu__desctop">
                 <ul class="menu">
                     <li class="menu__item active"><a href="#">Home</a></li>
                     <li class="menu__item"><a href="#">About Us</a></li>
@@ -24,6 +25,21 @@
                     <li class="menu__item"><a href="#">Contact Us</a></li>
                 </ul>
             </nav>
+            <div class="menu__mobile">
+                <a href="#"><img src="img/logo.png" alt="" class="logo"></a>
+                <div class="menu__burger"></div>
+                <ul class="menu">
+                    <li class="menu__item active"><a href="#">Home</a></li>
+                    <li class="menu__item"><a href="#">About Us</a></li>
+                    <li class="menu__item"><a href="#">Team</a></li>
+                    <li class="menu__item"><a href="#">
+                        <img src="img/logo.png" alt="logo" class="logo">
+                    </a></li>
+                    <li class="menu__item"><a href="#">Services</a></li>
+                    <li class="menu__item"><a href="#">Blog</a></li>
+                    <li class="menu__item"><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
             <div class="header__content">
                 <h1 class="header__title">We build it with passion</h1>
                 <p class="header__text">Just to be clear, we do this for fun not for you, just kidding.</p>

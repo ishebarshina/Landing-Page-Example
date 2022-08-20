@@ -57,6 +57,9 @@ a {
     justify-content: center;
     align-items: center;
 }
+.menu__mobile {
+    display: none;
+}
 .menu__item a {
     font-family: 'Roboto-Regular', sans-serif;
     font-size: 13px;
@@ -335,4 +338,5 @@ a {
 .footer {
     width: 100%;
     text-align: center;
+    padding-bottom: 50px;
 }
