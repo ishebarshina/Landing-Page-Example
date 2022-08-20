@@ -20,8 +20,11 @@ $(document).ready(function() {
         // установим active для текущей ссылки,
         // то есть для той, на которую кликнули
         $(this).addClass('active');
+        $('.menu').toggle(600);
         return false;
     });
     //--------------- мобильное меню -------------------------
-    
+    $('.menu__mobile-btn').click(function() {
+        $('.menu').toggle(600);
+    })
 })

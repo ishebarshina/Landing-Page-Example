@@ -40,11 +40,37 @@
     }
     .menu__mobile {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
     }
-    .menu {
+    .menu__mobile-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .menu__mobile .menu {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .menu__mobile .menu .menu__item a {
+        margin: 0;
+    }
+    .menu__desctop .menu {
         display: none;
+    }
+    .menu__mobile-btn {
+        cursor: pointer;
+        background-color: transparent;
+        width: 40px;
+        height: 29px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .menu__burger {
         width: 40px;
