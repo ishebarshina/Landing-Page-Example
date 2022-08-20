@@ -113,3 +113,47 @@ a {
     align-items: center;
     margin: 0 auto 206px;
 }
+.about {
+    background-color: #1d1d1d;
+    height: 1129px;
+    padding: 128px 0 271px;
+    background-image: url(../img/buildings__wight.png),
+                        url(../img/buildings__dark.png);
+    background-repeat: repeat-x;
+    background-position: center bottom;
+    background-size: contain;
+}
+.about .container {
+    max-width: 1012px;
+}
+.about__inner {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-rows: max-content max-content;
+    gap: 178px;
+}
+.about__item {
+    width: 417px;
+    height: 276px;
+    background-color: #181818;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 74px 4px 0 22px;
+}
+.about__year {
+    font-family: 'HelveticaNeueProLt', sans-serif;
+    font-size: 48px;
+    line-height: 1.5em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #fefefe;
+}
+.about__text {
+    font-family: 'Montserrat-Light', serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: #b7b7b7;
+}
+
