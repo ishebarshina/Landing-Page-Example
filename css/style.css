@@ -113,6 +113,7 @@ a {
     align-items: center;
     margin: 0 auto 206px;
 }
+/* --- about --- */
 .about {
     background-color: #1d1d1d;
     height: 1129px;
@@ -123,14 +124,13 @@ a {
     background-position: center bottom;
     background-size: contain;
 }
-.about .container {
-    max-width: 1012px;
-}
 .about__inner {
     display: grid;
     grid-template-columns: max-content max-content;
     grid-template-rows: max-content max-content;
     gap: 178px;
+    max-width: 1012px;
+    margin: 0 auto;
 }
 .about__item {
     width: 417px;
@@ -156,4 +156,61 @@ a {
     letter-spacing: 0.02em;
     color: #b7b7b7;
 }
+/* --- team --- */
 
+.team {
+    height: 745px;
+    text-align: center;
+    padding: 138px 0 149px;
+}
+.team__title {
+    font-family: 'HelveticaNeueProLt', sans-serif;
+    font-size: 34px;
+    line-height: 1.5em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #1d1e1f;
+    padding: 0;
+    margin: 0;
+}
+.team p {
+    font-family: 'Merriweather-LightItalic', serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    color: #898888;
+    padding: 0;
+    margin: 0 0 131px;
+
+}
+.team__inner {
+    max-width: 1012px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.team__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.team__name {
+    font-family: 'HelveticaNeueProMd', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #464646;
+    margin: 29px 0 7px;
+}
+.team__desc {
+    font-family: 'HelveticaNeueProLt', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #b3b3b3;
+}
+.team__link {
+    margin-top: 22px;
+}
