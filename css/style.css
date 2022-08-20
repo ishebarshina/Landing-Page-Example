@@ -1,6 +1,10 @@
 
 @font-face {
     font-family: 'HelveticaNeueLTProLt';
+    src:  url('../fonts/font-awesome-4.7.0/fonts/FontAwesome.otf') format('opentype');
+}
+@font-face {
+    font-family: 'HelveticaNeueLTProLt';
     src:  url('../fonts/HelveticaNeueLTProLt.otf') format('opentype');
 }
 @font-face {
@@ -159,9 +163,10 @@ a {
 /* --- team --- */
 
 .team {
-    height: 745px;
+    /* height: 745px; */
     text-align: center;
-    padding: 138px 0 149px;
+    padding: 138px 0 95px;
+    background-color: white;
 }
 .block__title {
     font-family: 'HelveticaNeueProLt', sans-serif;
@@ -219,12 +224,12 @@ a {
     background-color: #181818;
     text-align: center;
     height: 835px;
-    padding-top: 176px;
+    padding: 176px 0 149px;
 }
-.block__title {
+.services .block__title {
     color: #ffffff;
 }
-.block__text {
+.services .block__text {
     color: #777777;
 }
 .services__inner {
@@ -262,3 +267,71 @@ a {
     color: #383838;
 }
 /* --- contacts --- */
+.contacts {
+    height: 1087px;
+    text-align: center;
+    padding-top: 95px;
+}
+.contacts .block__title {
+    color: #1d1e1f;
+}
+.contacts .block__text {
+    color: #898888;
+    margin-bottom: 64px;
+}
+.contacts__inner {
+    display: flex;
+    justify-content: center;
+}
+.contacts__item {
+    margin: 0 126px 0 0;
+    width: 130px;
+}
+.contacts__item a {
+    display: block;
+    font-family: 'Helvetica Neue Pro - Lt';
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #898888;
+}
+.contacts__item:last-child {
+    margin: 0 0 -30px;
+}
+/* --- form --- */
+.contacts__form {
+    max-width: 770px;
+    margin: 153px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.contacts__name,
+.contacts__email,
+.contacts__number,
+.contact__text {
+    height: 52px; 
+    border: 1px solid #999999;
+    width: 100%;
+}
+.contact__text {
+    height: 195px;
+}
+.contact_btn {
+    height: 52px;
+    background-color: #161616;
+    width: 100%;
+    font-family: 'HelveticaNeueProMd';
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #fefefe;
+}
+/* --- footer --- */
+.footer {
+    width: 100%;
+    text-align: center;
+}
