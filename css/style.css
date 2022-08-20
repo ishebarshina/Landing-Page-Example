@@ -214,6 +214,7 @@ a {
 .team__link {
     margin-top: 22px;
 }
+/* --- services --- */
 .services {
     background-color: #181818;
     text-align: center;
@@ -260,4 +261,4 @@ a {
     letter-spacing: 0.02em;
     color: #383838;
 }
-
+/* --- contacts --- */
