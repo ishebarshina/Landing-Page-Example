@@ -77,6 +77,9 @@ a {
     color: #010101;
     transition: 0.5s;
 }
+.menu__item a.active {
+    color: #010101;
+}
 .header__content {
     display: flex;
     align-items: center;
@@ -119,6 +122,11 @@ a {
     justify-content: center;
     align-items: center;
     margin: 0 auto 206px;
+    transition: 0.5s;
+}
+.header__btn:hover {
+    text-shadow: #464646 0.5px 0.5px;
+    transition: 0.5s;
 }
 /* --- about --- */
 .about {
@@ -221,6 +229,13 @@ a {
 }
 .team__link {
     margin-top: 22px;
+}
+.team__link img {
+    transition: 0.5s;
+}
+.team__link img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
 }
 /* --- services --- */
 .services {
@@ -333,6 +348,12 @@ a {
     letter-spacing: 0.02em;
     color: #fefefe;
     cursor: pointer;
+    transition: 0.5s;
+}
+.contact_btn:hover {
+    color: #161616;
+    background-color: #b7b7b7;
+    transition: 0.5s;
 }
 /* --- footer --- */
 .footer {
