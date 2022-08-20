@@ -50,18 +50,15 @@
         width: 100%;
     }
     .menu__mobile .menu {
+        display: none;
         text-align: center;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+    }
+    .menu__mobile .menu .menu__item {
         margin-top: 20px;
     }
     .menu__mobile .menu .menu__item a {
         margin: 0;
-    }
-    .menu__desctop .menu {
-        display: none;
     }
     .menu__mobile-btn {
         cursor: pointer;
@@ -72,39 +69,72 @@
         align-items: center;
         justify-content: center;
     }
+    /* --- menu burger styles --- */
     .menu__burger {
+        display: block;
+        cursor: pointer;
         width: 40px;
-        height: 3px;
-        background-color: #000;
+        height: 40px;
+        background-color: #fff;
         position: relative;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-size: 0;
     }
-    .menu__burger::after {
-        width: 40px;
-        height: 3px;
-        background-color: #000;
+    .menu__burger span {
         position: absolute;
+        display: block;
+        background-color: #000;
+        height: 4px;
+        width: 30px;
+        top: 18px;
+        left: 5px;
+        right: 5px;
+        transition: 0.5s;
+        border-radius: 5px;
+    }
+    .menu__burger span::after,
+    .menu__burger span::before {
+        position: absolute;
+        display: block;
+        height: 4px;
+        background-color: #000;
         content: '';
+        width: 100%;
+        transition: 0.5s;
+        border-radius: 5px;
+    }
+    .menu__burger span::after {
+        top: -10px;
+    }
+    .menu__burger span::before {
         bottom: -10px;
     }
-    .menu__burger::before {
-        width: 40px;
-        height: 3px;
-        background-color: #000;
-        content: '';
-        top: -10px;
-        position: absolute;
+    .menu__burger.close span {
+        background-color: transparent;
+        transition: 0.5s;
     }
+    .menu__burger.close span::after {
+        top: 0;
+        transform: rotate(45deg);
+        transition: 0.5s;
+    }
+    .menu__burger.close span::before {
+        bottom: 0;
+        transform: rotate(-45deg);
+        transition: 0.5s;
+    }
+    /* --- menu burger styles --- */
     .header__title {
         margin-top: 0;
     }
     .header__content {
         text-align: center;
+        padding: 80px 0;
     }
     .header__btn {
         margin-bottom: 0;
-    }
-    .header__content {
-        padding: 100px 0;
     }
     .about {
         padding: 90px 0;

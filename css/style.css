@@ -50,7 +50,10 @@ li {
 a {
     text-decoration: none;
 }
-.menu {
+.menu__desctop {
+    display: block;
+}
+.menu__desctop .menu {
     margin: 0;
     padding: 0;
     display: flex;
