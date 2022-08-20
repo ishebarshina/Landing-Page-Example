@@ -20,13 +20,13 @@ $(document).ready(function() {
         // установим active для текущей ссылки,
         // то есть для той, на которую кликнули
         $(this).addClass('active');
-        $('.menu').toggle(600);
+        $('.menu__mobile .menu').toggle(600);
         $('.menu__burger').toggleClass('close');
         return false;
     });
     //--------------- мобильное меню -------------------------
     $('.menu__burger').click(function() {
         $(this).toggleClass('close');
-        $('.menu').toggle(600);
+        $('.menu__mobile .menu').toggle(600);
     })
 })
