@@ -51,7 +51,23 @@
 
 ## Подключение скриптов и стилей
 
-
+1. Копируем все наши стили из основного css файла в файл style.css, который мы создали в корне каталога test-cms.
+2. Создаем файлы header.php, footer.php, functions.php
+### header
+3. Переносим всю часть index.php от DOCTYPE до конца <header> в файл header.php.
+	Теперь наш файл index.php выглядит немного "безголовым" :) 
+	На пустующем месте оторванной головы пишем <?php get_header(); ?>
+	В файле header.php в теге <head> указываем <?php wp_head(); ?> 
+``` 
+<head>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<title>BW Theme</title>
+    	<?php wp_head(); ?>
+</head>
+```
+	Сразу после тега <body> указываем <?php wp_body_open(); ?>, и затем следует <header> из нашей статической верстки.
+	Что будет, если вы забудете удалить header из index.php? Ну, будет два header-a :)
 
   
 
