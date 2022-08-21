@@ -33,17 +33,17 @@
 3. Создадим превью темы. Сделаем скриншот главной страницы нашего сайта и разместим в корне каталога `test-cms`. Размер изображения должен быть равным 1200 х 900 px.
 4. Создаем в корне файл  style.css, копируем в него комментарий из style.css из другой темы. Можно копировать не все, в целом достаточно следующего:
 ```
-/*
-Theme Name: BlackWhite Landing Template
-Domain: twentytwenty
-Version: 2.0
-Tested up to: 6.0
-Requires at least: 4.7
-Requires PHP: 5.2.4
-Description: Landing Page Template
-Tags: blog, one-column
-Author: rekilina
-*/
+	/*
+	Theme Name: BlackWhite Landing Template
+	Domain: twentytwenty
+	Version: 2.0
+	Tested up to: 6.0
+	Requires at least: 4.7
+	Requires PHP: 5.2.4
+	Description: Landing Page Template
+	Tags: blog, one-column
+	Author: rekilina
+	*/
 ```
 Теперь у нас добавилась информация о теме.
 5. Создаем файл index.php -- копируем в него полностью содержимое нашего index.html файла со статической версткой
