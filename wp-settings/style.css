@@ -1,0 +1,378 @@
+/*
+Theme Name: BlackWhite Landing Template
+Text Domain: twentytwenty
+Version: 2.0
+Tested up to: 6.0
+Requires at least: 4.7
+Requires PHP: 5.2.4
+Description: Landing Page Template
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-patterns, block-styles, wide-blocks, accessibility-ready
+Author: rekilina
+*/
+
+
+@font-face {
+    font-family: 'HelveticaNeueLTProLt';
+    src:  url('../fonts/font-awesome-4.7.0/fonts/FontAwesome.otf') format('opentype');
+}
+@font-face {
+    font-family: 'HelveticaNeueLTProLt';
+    src:  url('../fonts/HelveticaNeueLTProLt.otf') format('opentype');
+}
+@font-face {
+    font-family: 'HelveticaNeueLTProMd';
+    src:  url('../fonts/HelveticaNeueLTProMd.otf') format('opentype');
+}
+@font-face {
+    font-family: 'HelveticaNeueLTProRoman';
+    src:  url('../fonts/HelveticaNeueLTProRoman.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Merriweather-LightItalic';
+    src:  url('../fonts/Merriweather-LightItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Montserrat-Light';
+    src:  url('../fonts/Montserrat-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src:  url('../fonts/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roboto-Regular';
+    src:  url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+.container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.menu__desctop {
+    display: block;
+}
+.menu__desctop .menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu__mobile {
+    display: none;
+}
+.menu__item a {
+    font-family: 'Roboto-Regular', sans-serif;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: #989696;
+    transition: 0.5s;
+    margin-right: 43px;
+}
+.logo {
+    margin: 0 16px;
+}
+.menu__item a:hover {
+    color: #010101;
+    transition: 0.5s;
+}
+.menu__item a.active {
+    color: #010101;
+}
+.header__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.menu__item:last-child a {
+    margin-right: 0;
+}
+.header__title {
+    font-family: 'HelveticaNeueLTProLt', sans-serif;
+    font-size: 44px;
+    line-height: 41px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #1d1e1f;
+    margin: 210px auto 4px;
+}
+.header__text {
+    font-family: 'Merriweather-LightItalic', serif;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.01em;
+    color: #898888;
+    margin: 0 auto 43px;
+}
+.header__btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    word-spacing: 0.01em;
+    color: #000000;
+    border: 1px solid #000000;
+    width: 188px;height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 206px;
+    transition: 0.5s;
+}
+.header__btn:hover {
+    text-shadow: #464646 0.5px 0.5px;
+    transition: 0.5s;
+}
+/* --- about --- */
+.about {
+    background-color: #1d1d1d;
+    height: 1129px;
+    padding: 128px 0 271px;
+    background-image: url(../img/buildings__wight.png),
+                        url(../img/buildings__dark.png);
+    background-repeat: repeat-x;
+    background-position: center bottom;
+    background-size: contain;
+}
+.about__inner {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-rows: max-content max-content;
+    gap: 178px;
+    max-width: 1012px;
+    margin: 0 auto;
+}
+.about__item {
+    width: 417px;
+    height: 276px;
+    background-color: #181818;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 74px 4px 0 22px;
+}
+.about__year {
+    font-family: 'HelveticaNeueProLt', sans-serif;
+    font-size: 48px;
+    line-height: 1.5em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #fefefe;
+}
+.about__text {
+    font-family: 'Montserrat-Light', serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: #b7b7b7;
+}
+/* --- team --- */
+
+.team {
+    /* height: 745px; */
+    text-align: center;
+    padding: 138px 0 95px;
+    background-color: white;
+}
+.block__title {
+    font-family: 'HelveticaNeueProLt', sans-serif;
+    font-size: 34px;
+    line-height: 1.5em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #1d1e1f;
+    padding: 0;
+    margin: 0;
+}
+.block__text {
+    font-family: 'Merriweather-LightItalic', serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    color: #898888;
+    padding: 0;
+    margin: 0 0 131px;
+
+}
+.team__inner {
+    max-width: 1012px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.team__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.team__name {
+    font-family: 'HelveticaNeueProMd', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #464646;
+    margin: 29px 0 7px;
+}
+.team__desc {
+    font-family: 'HelveticaNeueProLt', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #b3b3b3;
+}
+.team__link {
+    margin-top: 22px;
+}
+.team__link img {
+    transition: 0.5s;
+}
+.team__link img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+/* --- services --- */
+.services {
+    background-color: #181818;
+    text-align: center;
+    height: 835px;
+    padding: 176px 0 149px;
+}
+.services .block__title {
+    color: #ffffff;
+}
+.services .block__text {
+    color: #777777;
+}
+.services__inner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 138px;
+}
+.services__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img {
+    width: 172px;
+    height: 172px;
+    background-image: url(../img/ellipse.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 43px;
+}
+.services__name {
+    font-family: 'HelveticaNeueProLt', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    margin-bottom: 31px;
+}
+.services__desc {
+    font-family: 'HelveticaNeueProLt', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #383838;
+}
+/* --- contacts --- */
+.contacts {
+    height: 1087px;
+    text-align: center;
+    padding-top: 95px;
+}
+.contacts .block__title {
+    color: #1d1e1f;
+}
+.contacts .block__text {
+    color: #898888;
+    margin-bottom: 64px;
+}
+.contacts__inner {
+    display: flex;
+    justify-content: center;
+}
+.contacts__item {
+    margin: 0 126px 0 0;
+    width: 130px;
+}
+.contacts__item a {
+    display: block;
+    font-family: 'Helvetica Neue Pro - Lt';
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #898888;
+}
+.contacts__item:last-child {
+    margin: 0 0 -30px;
+}
+/* --- form --- */
+.contacts__form {
+    max-width: 770px;
+    margin: 153px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.contacts__name,
+.contacts__email,
+.contacts__number,
+.contact__text {
+    height: 52px; 
+    border: 1px solid #999999;
+    width: 100%;
+}
+.contact__text {
+    height: 195px;
+}
+.contact_btn {
+    height: 52px;
+    background-color: #161616;
+    width: 100%;
+    font-family: 'HelveticaNeueProMd';
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #fefefe;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.contact_btn:hover {
+    color: #161616;
+    background-color: #b7b7b7;
+    transition: 0.5s;
+}
+/* --- footer --- */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 50px;
+}
