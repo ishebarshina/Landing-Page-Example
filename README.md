@@ -126,7 +126,20 @@ wp_enqueue_style('style', get_stylesheet_uri(  ), array('normalize'));
     add_action('wp_enqueue_scripts', 'add_scripts_and_styles');
 ?>
 ```
-
-**README не завершен**
+## Выбор логотипа
+В файле `functions.php` добавляем функцию
+```
+add_theme_support( 'custom-logo');
+```
+Чтобы автоматизировать изменение логотипа на сайте через админку, нужно обратить внимание на все места в статической верстке, где присутствует изменяемый логотип. <br>
+В первую очередь, пропишем логотипу в файле `styles.css` класс `custom-logo`.<br>
+Теперь в нашей статической верстке заменим изображение логотипа на php-функцию. <br>
+Было:
+```
+<a href="#"><img src="img/logo.png" alt="" class="logo"></a>
+```
+Стало:
+```
+<?php [the_custom_logo();](https://wp-kama.ru/function/add_theme_support#custom-logo) ?>
 
 
