@@ -138,8 +138,8 @@ add_theme_support( 'custom-logo');
 ```
 <a href="#"><img src="img/logo.png" alt="" class="logo"></a>
 ```
-Стало:
+Стало: [the_custom_logo();](https://wp-kama.ru/function/add_theme_support#custom-logo)
 ```
-<?php [the_custom_logo();](https://wp-kama.ru/function/add_theme_support#custom-logo) ?>
-
+<?php the_custom_logo(); ?>
+```
 
