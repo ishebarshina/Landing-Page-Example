@@ -146,7 +146,7 @@ add_theme_support( 'custom-logo');
 ## Custom Field Suite
 > Custom Field Suite (CFS) позволяет добавлять собственные поля записям на сайте. Он лёгок и надёжен как кусок бревна (в нём практически нечему ломаться).
 
-[Ссылка на плагин](https://ru.wordpress.org/plugins/custom-field-suite/)
+[Ссылка на плагин](https://ru.wordpress.org/plugins/custom-field-suite/) <br>
 Скачиваем плагин, размещаем содержимое архива в папке `wp-content` -- `plugins` <br>
 В админке WP нажимаем на значок обновления сверху. Переходим во вкладку плагины и активируем наш плагин. <br>
 
