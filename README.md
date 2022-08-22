@@ -100,9 +100,10 @@ wp_deregister_script( 'jquery' );
 ```
 	wp_enqueue_script( 'jquery' );
 ```
-8. Подключаем скрипт с анимациями и указываем в зависимостях iQuery  и можно удаляем его подключение в index.php
+8. Подключаем скрипт с анимациями и указываем в зависимостях iQuery, добавляем в очередь и можно удаляем его подключение в index.php
 ```
 	wp_register_script( 'main', get_template_directory_uri( ) . 'assets/js/main.js', array('jquery'),  null, true);
+	wp_enqueue_script( 'main' );
 ```
 9. Подключаем стили. Удаляем подключение стилей в `<head>` файла `index.php`
 ```
@@ -117,8 +118,10 @@ wp_deregister_script( 'jquery' );
         wp_register_script( 'jquery', get_template_directory_uri( ) . 'assets/js/jquery.min.js', false,  null, true);
         wp_enqueue_script( 'jquery' );
         wp_register_script( 'main', get_template_directory_uri( ) . 'assets/js/main.js', array('jquery'),  null, true);
+	wp_enqueue_script( 'main' );
         wp_enqueue_style('normalize', get_template_directory_uri(  ) . 'assets/css/normalize.css');
         wp_enqueue_style('style', get_stylesheet_uri(  ), array('normalize'));
+	wp_enqueue_style('adaptive', get_template_directory_uri(  ) . '/assets/css/adaptive.css', array('style'));
     }
     add_action('wp_enqueue_scripts', 'add_scripts_and_styles');
 ?>
