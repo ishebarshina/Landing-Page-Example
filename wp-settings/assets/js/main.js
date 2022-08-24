@@ -4,7 +4,7 @@
 $(document).ready(function() {
     //------------------ скролл страницы -----------------------
     // напишем селектор + по клику
-    $('.menu__item a[href^="#"]').click( function() { 
+    $('.header a[href^="#"]').click( function() { 
         // создаем переменную target
         // в данном контексте this - это ссылка, по которой был выполнен клик
         // метод attr позволяет выбрать атрибут и получить его значение
@@ -28,5 +28,16 @@ $(document).ready(function() {
     $('.menu__burger').click(function() {
         $(this).toggleClass('close');
         $('.menu__mobile .menu').toggle(600);
-    })
+    });
+    // слайдер
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        }
+    });
+
 })

@@ -1,72 +1,93 @@
 <?php get_header(); ?>
-    <section class="about" id="about">
+    <section class="about" id="about" style="background-image: url(<?= CFS()->get('buildings_white');?>), url(<?= CFS()->get('buildings_dark');?>);">
         <div class="container">
             <div class="about__inner">
-                <div class="about__item">
-                    <div class="about__year">2011</div>
-                    <div class="about__text">Lorem ipsum dolor sit amet, consectetur adipiselit. Vivamus varius nec diam vitae hendrerit bigus mit.</div>
-                </div>
-                <div class="about__item">
-                    <div class="about__year">2012</div>
-                    <div class="about__text">Lorem ipsum dolor sit amet, consectetur adipiselit. Vivamus varius nec diam vitae hendrerit bigus mit.
-                        Begitus vit urna nulla.</div>
-                </div>
-                <div class="about__item">
-                    <div class="about__year">2013</div>
-                    <div class="about__text">Sed at auctor sem, nec tincidunt elit. Pellentesque enim turpis, porttitor ac orci in, ultrices efficitur nisl. Ut odio libero, sodales a tellus eleifend, suscipit dapibus mi.</div>
-                </div>
-                <div class="about__item">
-                    <div class="about__year">2014</div>
-                    <div class="about__text">Lorem ipsum dolor sit amet, consectetur adipiselit. Vivamus varius nec diam vitae hendrerit bigus mit.
-                        Begitus vit urna nulla.</div>
-                </div>
+                <?php 
+                    $loop = CFS()->get('card');
+                    foreach ($loop as $row) {
+                        ?>
+                        <div class="about__item">
+                            <div class="about__year">
+                                <?= $row['card_year'] ?>
+                            </div>
+                            <div class="about__text">
+                                <?= $row['card_text'] ?>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                ?>
+                
             </div>
         </div>
     </section>
     <section class="team" id="team">
         <div class="container">
-            <h2 class="block__title">This is our team</h1>
-            <p class="block__text">We are small but effective and ...</p>
+            <h2 class="block__title"><?= CFS()->get('team_title'); ?></h2>
+            <p class="block__text"><?= CFS()->get('team_desc'); ?></p>
             <div class="team__inner">
-                <div class="team__item">
-                    <img src="img/mark.png" alt="mark">
-                    <div class="team__name">Mark Once</div>
-                    <div class="team__desc">Designer & Front-End Developer</div>
-                    <div class="team__link">
-                        <a href="#">
-                            <img src="img/instagram.png" alt="instagram">
-                        </a>
-                        <a href="">
-                            <img src="img/twitter.png" alt="instagram">
-                        </a>
-                    </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <?php
+                    $loop = CFS()->get('team_card');
+                    foreach ($loop as $member) {
+                       ?>
+                        <div class="swiper-slide">
+                            <div class="team__item">
+                                <img src="<?= $member['team_img']; ?>" alt="mark">
+                                <div class="team__name">
+                                    <?= $member['team_name']; ?>
+                                </div>
+                                <div class="team__desc">
+                                <?= $member['team_post']; ?>
+                                </div>
+                                <div class="team__link">
+                                    <?php
+                                        if(isset($member['team_inst']['url'])) {
+                                            ?>
+                                            <a href="<?= $member['team_inst']['url']; ?>" target="<?= $member['team_inst']['target']; ?>">
+                                                <i class="icon-instagram"></i>
+                                            </a>
+                                            <?php
+                                        }
+                                    ?>
+                                    <?php
+                                        if(isset($member['team_twitter']['url'])) {
+                                            ?>
+                                            <a href="<?= $member['team_twitter']['url']; ?>" target="<?= $member['team_twitter']['target']; ?>">
+                                                <i class="icon-twitter"></i>
+                                            </a>
+                                            <?php
+                                        }
+                                    ?>
+                                    <?php
+                                        if(isset($member['team_VK']['url'])) {
+                                            ?>
+                                            <a href="<?= $member['team_VK']['url']; ?>" target="<?= $member['team_VK']['target']; ?>">
+                                                <i class="icon-vkontakte"></i>
+                                            </a>
+                                            <?php
+                                        }
+                                    ?>
+                                    <?php
+                                        if(isset($member['team_facebook']['url'])) {
+                                            ?>
+                                            <a href="<?= $member['team_facebook']['url']; ?>" target="<?= $member['team_facebook']['target']; ?>">
+                                                <i class="icon-facebook"></i>
+                                            </a>
+                                            <?php
+                                        }
+                                    ?>    
+                                </div>
+                            </div>
+                        </div>
+                       <?php
+                    }
+                    ?>
                 </div>
-                <div class="team__item">
-                    <img src="img/justin.png" alt="justin">
-                    <div class="team__name">Justin Twice</div>
-                    <div class="team__desc">Founder & CEO</div>
-                    <div class="team__link">
-                        <a href="#">
-                            <img src="img/instagram.png" alt="instagram">
-                        </a>
-                        <a href="">
-                            <img src="img/twitter.png" alt="instagram">
-                        </a>
-                    </div>
-                </div>
-                <div class="team__item">
-                    <img src="img/antonio.png" alt="antonio">
-                    <div class="team__name">Antonio Never</div>
-                    <div class="team__desc">Someone & Somewhere</div>
-                    <div class="team__link">
-                        <a href="#">
-                            <img src="img/instagram.png" alt="instagram">
-                        </a>
-                        <a href="">
-                            <img src="img/twitter.png" alt="instagram">
-                        </a>
-                    </div>
-                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
             </div>
         </div>
     </section>
