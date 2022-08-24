@@ -1,4 +1,5 @@
 # Выкладываем сайт на WordPress
+**README не завершен**<br>
 Этот репозиторий содержит фалы статической верстки, а также каталог `wp-settings`, где содержатся фалы темы для Wordpress.
 Ниже следует подробная инструкция по созданию сайта на WP.
 ## Установка WordPress
@@ -66,10 +67,87 @@
     	<?php wp_head(); ?>
 </head>
 ```
-	Сразу после тега <body> указываем <?php wp_body_open(); ?>, и затем следует <header> из нашей статической верстки.
-	Что будет, если вы забудете удалить header из index.php? Ну, будет два header-a :)
+4. Сразу после тега `<body>` указываем `<?php wp_body_open(); ?>`, и затем следует `<header>` из нашей статической верстки.
+Что будет, если вы забудете удалить header из `index.php`? Ну, будет два header-a :)
 
-  
+### footer
+5. С футером всё аналогично. Переносим тег `<footer>` и его содержимое в файл `footer.php`. <br>На месте отсутствующего футера в файле `index.php` пишем `<?php get_footer(); ?>`. <br>В файле `footer.php` в самом начале перед кодом футера указываем: `<?php wp_footer(); ?>`.
 
+### Подключаем стили и скрипты
+6. Настала очередь файла `functions.php`. Нам понадобится реализовать свою функцию `function add_scripts_and_styles() {...}`, в которой будут подключаться наши стили и js-скрипты. У меня скрипты написаны на jQuery, поэтому его тоже необходио будет подключить и указать в зависимостях. Итак, каркас файла выглядит так:
+```
+<?php
+	function add_scripts_and_styles() {
+		...
+	}
+	add_action('wp_enqueue_scripts', 'add_scripts_and_styles');
+?>
+```
+Полезная ссылка: [wp_deregister_script](https://wp-kama.ru/function/wp_deregister_script)
+7. Теперь будем писать функцию `add_scripts_and_styles()`. Подключаем jQuery<br>
+Удаляем базовую регистрацию jQuery скрипта
+```
+wp_deregister_script( 'jquery' );
+```
+Подключаем jQuery, который используется в нашем проекте с помощью функции `wp_register_script()`.<br>
+Аргумент 1. Название модуля 'jquery'<br>
+Аргумент 2. Путь - указываем динамический + статический<br>
+Аргумент 3. Зависимости (в данном случае их нет  - false)<br>
+```
+wp_register_script( 'jquery', get_template_directory_uri( ) . 'assets/js/jquery.min.js', false,  null, true);
+```
+Наконец подключаем наш jquery скрипт и можно удалить его подключение в index.php
+```
+wp_enqueue_script( 'jquery' );
+```
+8. Подключаем скрипт с анимациями и указываем в зависимостях iQuery, добавляем в очередь и можно удаляем его подключение в index.php
+```
+wp_register_script( 'main', get_template_directory_uri( ) . 'assets/js/main.js', array('jquery'),  null, true);
+wp_enqueue_script( 'main' );
+```
+9. Подключаем стили. Удаляем подключение стилей в `<head>` файла `index.php`
+```
+wp_enqueue_style('normalize', get_template_directory_uri(  ) . 'assets/css/normalize.css');
+wp_enqueue_style('style', get_stylesheet_uri(  ), array('normalize'));
+```
+10. Итоговый вид файла `functions.php`
+```
+<?php
+    function add_scripts_and_styles() {
+        wp_deregister_script( 'jquery' );
+        wp_register_script( 'jquery', get_template_directory_uri( ) . 'assets/js/jquery.min.js', false,  null, true);
+        wp_enqueue_script( 'jquery' );
+        wp_register_script( 'main', get_template_directory_uri( ) . 'assets/js/main.js', array('jquery'),  null, true);
+	wp_enqueue_script( 'main' );
+        wp_enqueue_style('normalize', get_template_directory_uri(  ) . 'assets/css/normalize.css');
+        wp_enqueue_style('style', get_stylesheet_uri(  ), array('normalize'));
+	wp_enqueue_style('adaptive', get_template_directory_uri(  ) . '/assets/css/adaptive.css', array('style'));
+    }
+    add_action('wp_enqueue_scripts', 'add_scripts_and_styles');
+?>
+```
+## Выбор логотипа
+В файле `functions.php` добавляем функцию
+```
+add_theme_support( 'custom-logo');
+```
+Чтобы автоматизировать изменение логотипа на сайте через админку, нужно обратить внимание на все места в статической верстке, где присутствует изменяемый логотип. <br>
+В первую очередь, пропишем логотипу в файле `styles.css` класс `custom-logo`.<br>
+Теперь в нашей статической верстке заменим изображение логотипа на php-функцию. <br>
+Было:
+```
+<a href="#"><img src="img/logo.png" alt="" class="logo"></a>
+```
+Стало: [the_custom_logo();](https://wp-kama.ru/function/add_theme_support#custom-logo)
+```
+<?php the_custom_logo(); ?>
+```
+
+## Custom Field Suite
+> Custom Field Suite (CFS) позволяет добавлять собственные поля записям на сайте. Он лёгок и надёжен как кусок бревна (в нём практически нечему ломаться).
+
+[Ссылка на плагин](https://ru.wordpress.org/plugins/custom-field-suite/) <br>
+Скачиваем плагин, размещаем содержимое архива в папке `wp-content` -- `plugins` <br>
+В админке WP нажимаем на значок обновления сверху. Переходим во вкладку плагины и активируем наш плагин. <br>
 
 
