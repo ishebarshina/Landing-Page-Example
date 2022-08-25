@@ -93,30 +93,23 @@
     </section>
     <section class="services" id="services">
         <div class="container">
-            <h2 class="block__title">We provide you everything</h2>
-            <p class="block__text">Maybe not everything, but we provide you some stuff.</p>
+            <h2 class="block__title"><?= CFS()->get('services_title'); ?></h2>
+            <p class="block__text"><?= CFS()->get('services_subtitle'); ?></p>
             <div class="services__inner">
-                <div class="services__item">
-                    <div class="img">
-                        <img src="img/graph.png" alt="graph">
+                <?php
+                    $loop = CFS()->get('services_card');
+                    foreach ($loop as $card) {
+                ?>
+                    <div class="services__item">
+                        <div class="img">
+                            <img src="<?= $card['services_card_img']; ?>" alt="services_card_img">
+                        </div>
+                        <div class="services__name"><?= $card['services_card_title']; ?></div>
+                        <div class="services__desc"><?= $card['services_card_text']; ?></div>
                     </div>
-                    <div class="services__name">Some Analytics</div>
-                    <div class="services__desc">Aenean nisi lectus, convallis non lorem sit amet, rhoncus malesuada justo</div>
-                </div>
-                <div class="services__item">
-                    <div class="img">
-                        <img src="img/heart.png" alt="heart">
-                    </div>
-                    <div class="services__name">We provide you love</div>
-                    <div class="services__desc">Aenean nisi lectus, convallis non lorem sit amet, rhoncus malesuada justo</div>
-                </div>
-                <div class="services__item">
-                    <div class="img">
-                        <img src="img/cloud.png" alt="cloud">
-                    </div>
-                    <div class="services__name">And Some Cloud</div>
-                    <div class="services__desc">Aenean nisi lectus, convallis non lorem sit amet, rhoncus malesuada justo</div>
-                </div>
+                <?php
+                    }
+                ?>
             </div>
         </div>
     </section>
