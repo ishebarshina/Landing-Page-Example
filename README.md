@@ -255,3 +255,10 @@ add_theme_support( 'custom-logo');
                 ?>
             </div>
 ```
+Осталось только подтянуть Заголовок и Подзаголовок блока Услуг. Удаляем из статической верстки текст, заменяем его функцией get()
+```
+	<h2 class="block__title"><?= CFS()->get('services_title '); ?></h2>
+	<p class="block__text"><?= CFS()->get('services_title '); ?></p>
+```
+
+Ура! Блог готов :)
