@@ -261,4 +261,4 @@ add_theme_support( 'custom-logo');
 <p class="block__text"><?= CFS()->get('services_subtitle'); ?></p>
 ```
 
-Ура! Блог готов :)
+Ура! Блок готов :)
