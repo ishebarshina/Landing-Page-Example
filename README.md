@@ -83,7 +83,7 @@
 	add_action('wp_enqueue_scripts', 'add_scripts_and_styles');
 ?>
 ```
-Полезная ссылка: [wp_deregister_script](https://wp-kama.ru/function/wp_deregister_script)
+Полезная ссылка: [wp_deregister_script](https://wp-kama.ru/function/wp_deregister_script) <br>
 7. Теперь будем писать функцию `add_scripts_and_styles()`. Подключаем jQuery<br>
 Удаляем базовую регистрацию jQuery скрипта
 ```
@@ -151,7 +151,7 @@ add_theme_support( 'custom-logo');
 В админке WP нажимаем на значок обновления сверху. Переходим во вкладку плагины и активируем наш плагин. <br>
 Переходим в Натсройки - Custom Field Suite - Настройки сайта<br>
 Рассмотрим создание блока страницы на примере блока services - Услуги.<br>
-Нажимаем Добавить поле. Указывает название (Будет отображаться в админке), Имя (нужно для получения данных через php) и Тип поля - Вкладка. Вкладка - это смысловой блок, как <section>.<br>
+Нажимаем Добавить поле. Указывает название (Будет отображаться в админке), Имя (нужно для получения данных через php) и Тип поля - Вкладка. Вкладка - это смысловой блок, как `<section>`.<br>
 Добавляем следующее поле. 
 - Название: Заголовок
 - Имя: services_title
@@ -202,4 +202,56 @@ add_theme_support( 'custom-logo');
 
 ### Цикл в index.php
 Итак, пока что наш сайт "не знает" о том, что мы сделали в админке. Чтобы наш сайт обновлялся согласно изменениям, которые вносятся через админку, нам необходимо поправить код файла index.php.<br>
-
+Убираем в html-разметке блока услуг две посление карточки - оставляем только одну. Разметку этой одной карточки мы и будем помещать в цикл. Разметка одной карточки внутри контейнера-обертки:
+```
+	<div class="services__inner">
+                <div class="services__item">
+                    <div class="img">
+                        <img src="img/graph.png" alt="graph">
+                    </div>
+                    <div class="services__name">Some Analytics</div>
+                    <div class="services__desc">Aenean nisi lectus, convallis non lorem sit amet, rhoncus malesuada justo</div>
+                </div>
+       </div>
+```
+Открываем цикл внутри контейнера-обертки:
+```
+	<div class="swiper-wrapper">
+	<?php
+		$loop = CFS()->get('services_card');
+                foreach ($loop as $card) {
+	?>
+```
+Здесь `CFS()` - это класс плагина Custom Field Suite. Вызываем его метод `get()` с аргументом 'services_card'. Теперь в переменной $loop хранится массив наших карточек, по которому мы будем итерироваться. Каждая карточка $card является объектом с полями 'services_card_img', 'services_card_title', 'services_card_text'. Будем брать значения этих полей также с помощью метода get(). В итоге, получим такую разметку:
+```
+	<div class="services__item">
+		<div class="img">
+			<img src="<?= $card['services_card_img']; ?>" alt="services_card_img">
+		</div>
+		<div class="services__name"><?= $card['services_card_title']; ?></div>
+                <div class="services__desc"><?= $card['services_card_text']; ?></div>
+	</div>
+```
+И не забываем закрыть наш цикл `foreach`:
+```
+	<?php } ?>
+```
+В итоге получаем:
+```
+	<div class="services__inner">
+                <?php
+                    $loop = CFS()->get('services_card');
+                    foreach ($loop as $card) {
+                ?>
+                    <div class="services__item">
+                        <div class="img">
+                            <img src="<?= $card['services_card_img']; ?>" alt="services_card_img">
+                        </div>
+                        <div class="services__name"><?= $card['services_card_title']; ?></div>
+                        <div class="services__desc"><?= $card['services_card_text']; ?></div>
+                    </div>
+                <?php
+                    }
+                ?>
+            </div>
+```
