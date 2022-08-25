@@ -204,61 +204,61 @@ add_theme_support( 'custom-logo');
 Итак, пока что наш сайт "не знает" о том, что мы сделали в админке. Чтобы наш сайт обновлялся согласно изменениям, которые вносятся через админку, нам необходимо поправить код файла index.php.<br>
 Убираем в html-разметке блока услуг две посление карточки - оставляем только одну. Разметку этой одной карточки мы и будем помещать в цикл. Разметка одной карточки внутри контейнера-обертки:
 ```
-	<div class="services__inner">
-                <div class="services__item">
-                    <div class="img">
-                        <img src="img/graph.png" alt="graph">
-                    </div>
-                    <div class="services__name">Some Analytics</div>
-                    <div class="services__desc">Aenean nisi lectus, convallis non lorem sit amet, rhoncus malesuada justo</div>
-                </div>
-       </div>
+<div class="services__inner">
+	<div class="services__item">
+        	<div class="img">
+        		<img src="img/graph.png" alt="graph">
+		</div>
+        	<div class="services__name">Some Analytics</div>
+        	<div class="services__desc">Aenean nisi lectus, convallis non lorem sit amet, rhoncus malesuada justo</div>
+	</div>
+</div>
 ```
 Открываем цикл внутри контейнера-обертки:
 ```
-	<div class="swiper-wrapper">
-	<?php
-		$loop = CFS()->get('services_card');
-                foreach ($loop as $card) {
-	?>
+<div class="swiper-wrapper">
+<?php
+	$loop = CFS()->get('services_card');
+        foreach ($loop as $card) {
+?>
 ```
 Здесь `CFS()` - это класс плагина Custom Field Suite. Вызываем его метод `get()` с аргументом 'services_card'. Теперь в переменной $loop хранится массив наших карточек, по которому мы будем итерироваться. Каждая карточка $card является объектом с полями 'services_card_img', 'services_card_title', 'services_card_text'. Будем брать значения этих полей также с помощью метода get(). В итоге, получим такую разметку:
 ```
-	<div class="services__item">
-		<div class="img">
-			<img src="<?= $card['services_card_img']; ?>" alt="services_card_img">
-		</div>
-		<div class="services__name"><?= $card['services_card_title']; ?></div>
-                <div class="services__desc"><?= $card['services_card_text']; ?></div>
+<div class="services__item">
+	<div class="img">
+		<img src="<?= $card['services_card_img']; ?>" alt="services_card_img">
 	</div>
+	<div class="services__name"><?= $card['services_card_title']; ?></div>
+        <div class="services__desc"><?= $card['services_card_text']; ?></div>
+</div>
 ```
 И не забываем закрыть наш цикл `foreach`:
 ```
-	<?php } ?>
+<?php } ?>
 ```
 В итоге получаем:
 ```
-	<div class="services__inner">
-                <?php
-                    $loop = CFS()->get('services_card');
-                    foreach ($loop as $card) {
-                ?>
-                    <div class="services__item">
-                        <div class="img">
-                            <img src="<?= $card['services_card_img']; ?>" alt="services_card_img">
-                        </div>
-                        <div class="services__name"><?= $card['services_card_title']; ?></div>
-                        <div class="services__desc"><?= $card['services_card_text']; ?></div>
-                    </div>
-                <?php
-                    }
-                ?>
-            </div>
+<div class="services__inner">
+	<?php
+        	$loop = CFS()->get('services_card');
+                foreach ($loop as $card) {
+	?>
+        <div class="services__item">
+        	<div class="img">
+                	<img src="<?= $card['services_card_img']; ?>" alt="services_card_img">
+		</div>
+                <div class="services__name"><?= $card['services_card_title']; ?></div>
+                <div class="services__desc"><?= $card['services_card_text']; ?></div>
+	</div>
+        <?php
+        	}
+	?>
+</div>
 ```
 Осталось только подтянуть Заголовок и Подзаголовок блока Услуг. Удаляем из статической верстки текст, заменяем его функцией get()
 ```
-	<h2 class="block__title"><?= CFS()->get('services_title '); ?></h2>
-	<p class="block__text"><?= CFS()->get('services_title '); ?></p>
+<h2 class="block__title"><?= CFS()->get('services_title '); ?></h2>
+<p class="block__text"><?= CFS()->get('services_title '); ?></p>
 ```
 
 Ура! Блог готов :)
