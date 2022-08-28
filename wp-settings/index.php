@@ -150,7 +150,7 @@
                     <a href="mailto: somemail@hotmail.com" class="contacts__desc"><?= CFS()->get('contacts_mail'); ?></a>
                 </div>
             </div>
-            <form class="contacts__form">
+            <!-- <form class="contacts__form">
                 <input class="contacts__name" type="text" placeholder="Full Name">
                 <input class="contacts__email" type="email" placeholder="Email">
                 <input class="contacts__number" type="phone" placeholder="Number">
@@ -158,7 +158,8 @@
                 <button class="contact_btn">
                     Submit
                 </button>
-            </form>
+            </form> -->
+            <?php the_content(); ?>
         </div>
     </section>
     <?php get_footer(); ?>
