@@ -115,24 +115,39 @@
     </section>
     <section class="contacts" id="contacts">
         <div class="container">
-            <div class="block__title">Contact Us</div>
-            <p class="block__text">We know what we need to do</p>
+            <h2 class="block__title"><?= CFS()->get('contacts_title'); ?></h2>
+            <p class="block__text"><?= CFS()->get('contacts_subtitle'); ?></p>
             <div class="contacts__inner">
                 <div class="contacts__item">
-                    <a href="tel:555222333"><img src="img/phone.png" alt="phone"></a>
-                    <a href="tel:555222333" class="contacts__desc">555-222-333</a>
+                    <a href="tel:<?= CFS()->get('contacts_phone'); ?>"><img src="<?= CFS()->get('img_phone'); ?>" alt="phone"></a>
+                    <a href="tel:<?= CFS()->get('contacts_phone'); ?>" class="contacts__desc"><?= CFS()->get('contacts_phone'); ?></a>
                 </div>
                 <div class="contacts__item">
                     <a href="#">
-                        <img src="img/pin.png" alt="pin">
+                        <img src="<?= CFS()->get('img_map'); ?>" alt="pin">
                     </a>
-                    <a href="#" class="contacts__desc">Here is some address</a>
+                    <!-- print_r(CFS()->get('contacts_map'));
+                    Array
+                    (
+                        [url] => http://maps.com
+                        [text] => Here is some address
+                        [target] => _blank
+                    ) -->  
+                    <?php
+                        if(!empty(CFS()->get('contacts_map')['url'])) {
+                    ?>
+                        <a href="<?= CFS()->get('contacts_map')['url']; ?>" class="contacts__desc" target="<?= CFS()->get('contacts_map')['target']; ?>">
+                            <?= CFS()->get('contacts_map')['text'] ?>
+                        </a>
+                    <?php
+                        }
+                    ?>
                 </div>
                 <div class="contacts__item">
                     <a href="mailto: somemail@hotmail.com">
-                        <img src="img/mai.png" alt="mail">
+                        <img src="<?= CFS()->get('img_mail'); ?>" alt="mail">
                     </a>
-                    <a href="mailto: somemail@hotmail.com" class="contacts__desc">somemail@hotmail.com</a>
+                    <a href="mailto: somemail@hotmail.com" class="contacts__desc"><?= CFS()->get('contacts_mail'); ?></a>
                 </div>
             </div>
             <form class="contacts__form">
